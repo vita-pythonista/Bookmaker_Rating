@@ -24,10 +24,10 @@ class TestEnterWithInsubmitEmail:
 
     def test_enter_with_cookies(self, browser):
         browser.get("https://bookmaker-ratings.ru/")
-        browser.add_cookie({"name": "guestId", "value": "342f887fa70f20a71497d5bc33b91799"})
-        browser.add_cookie({"name": "_ym_d", "value": "1653841555"})
-        browser.add_cookie({"name": "_ym_uid", "value": "1653841555438470690"})
-        browser.add_cookie({"name": "_ym_isad", "value": "1"})
-        browser.add_cookie({"name": "_gid", "value": "GA1.2.1527550932.1654110392"})
-        browser.refresh()
+        browser.add_cookie({"name": "accessToken", "value": "1567e02d62f8f624640181628f81b4e2ebaac133", "path": "/"})
+        browser.add_cookie({"name": "auth", "value": "%7B%22access_token%22%3A%221567e02d62f8f624640181628f81b4e2ebaac133%22%2C%22id%22%3A631114%2C%22refresh_token%22%3A%2252c983a1d4d005fe0ace535beead683fd1937b3d%22%2C%22initials%22%3A%22%D0%92%D0%90%22%2C%22avatar%22%3Anull%2C%22subscriptions%22%3A%5B%5D%2C%22roles%22%3A%5B%22subscriber%22%5D%7D"})
+        browser.add_cookie({"name": "guestId", "value": "342f887fa70f20a71497d5bc33b91799", "path": "/"})
+        browser.add_cookie({"name": "refreshToken", "value": "52c983a1d4d005fe0ace535beead683fd1937b3d52c983a1d4d005fe0ace535beead683fd1937b3d", "path": "/"})
+        browser.get("https://bookmaker-ratings.ru/tips/pszh-mets-prognoz-i-stavka-gosti-obyazany-zabivat//")
+        time.sleep(2)
 
