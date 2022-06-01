@@ -11,7 +11,7 @@ from helper.listener import DriverListener
 logging.basicConfig(level=logging.INFO)
 
 def pytest_addoption(parser):
-    parser.addoption("--browser", action='store', default='firefox',
+    parser.addoption("--browser", action='store', default='chrome',
                      help="Choose name browse^ chrome, firefox or headless")
 
 @pytest.fixture()

@@ -3,6 +3,7 @@ import time
 
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import WebDriverException, TimeoutException
 
 logging.basicConfig(level=logging.INFO)
@@ -66,3 +67,11 @@ class BaseAction:
         logging.info(f"Я собираюсь вводить текст {text} в поле веб элемента с таким локатором {locator}")
         element.send_keys(text)
         logging.info(f"Я ввёл текст {text} в поле веб элемента с таким локатором {locator}")
+
+    def mouse_click(self, type_locator, locator):
+        """Имитация нажатия кнопки мышью"""
+        action = ActionChains(self.driver)
+        element = self.find_element(type_locator, locator)
+        action.move_to_element(element)
+        action.click(on_element=element)
+        action.perform()
