@@ -1,8 +1,10 @@
 from selenium.webdriver.common.by import By
 
+
 class MainPage:
 
     btn_enter = (By.CSS_SELECTOR, ".menu-wrapper .login-wrapper")
+
 
 class WindowsEnterOrRegistration:
 

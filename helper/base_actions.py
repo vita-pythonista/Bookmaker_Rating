@@ -10,6 +10,7 @@ logging.basicConfig(level=logging.INFO)
 
 TIME_WAITING = 10
 
+
 class BaseAction:
     """Простые действия для работы со страницами"""
 
@@ -19,7 +20,8 @@ class BaseAction:
     def find_element(self, type_locator, locator):
         """Поиск элемента по локатору"""
         try:
-            element = WebDriverWait(self.driver, TIME_WAITING).until(EC.presence_of_element_located((type_locator, locator)))
+            element = WebDriverWait(self.driver, TIME_WAITING).until(EC.presence_of_element_located((type_locator,
+                                                                                                     locator)))
             return element
         except TimeoutException:
             return self.driver.execute_script("return document.querySelector(arguments[0]);", locator)
@@ -27,15 +29,17 @@ class BaseAction:
     def find_elements(self, type_locator, locator):
         """Поиск элементов по локатору"""
         try:
-            elements = WebDriverWait(self.driver, TIME_WAITING).until(EC.presence_of_all_elements_located((type_locator, locator)))
+            elements = WebDriverWait(self.driver, TIME_WAITING).until(EC.presence_of_all_elements_located((type_locator,
+                                                                                                           locator)))
             return elements
         except TimeoutException:
             return self.driver.execute_script("return document.querySelectorAll(arguments[0]);", locator)
 
-    def click(self,type_locator, locator):
+    def click(self, type_locator, locator):
         """Клик по элементу"""
         try:
-            element = WebDriverWait(self.driver, TIME_WAITING).until(EC.element_to_be_clickable((type_locator, locator)))
+            element = WebDriverWait(self.driver, TIME_WAITING).until(EC.element_to_be_clickable((type_locator,
+                                                                                                 locator)))
             element.click()
         except WebDriverException:
             self.driver.execute_script("return document.querySelectorAll(arguments[0]);", locator)
@@ -44,7 +48,8 @@ class BaseAction:
         """Ожидание элемента"""
         init = time.process_time()
         try:
-            element = WebDriverWait(self.driver, TIME_WAITING).until(EC.visibility_of_element_located((type_locator, locator)))
+            element = WebDriverWait(self.driver, TIME_WAITING).until(EC.visibility_of_element_located((type_locator,
+                                                                                                       locator)))
             return element
         except TimeoutException:
             self.wait_of_finish_active_functions_on_page()

@@ -2,6 +2,7 @@ import time
 
 from pages.main_page import Main
 
+
 class TestEnterWithInsubmitEmail:
 
     def test_error_about_unregister_email(self, browser):
