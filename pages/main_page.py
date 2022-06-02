@@ -29,3 +29,12 @@ class Main(BaseAction):
     def check_error_about_unregister_email(self):
         error_text_element = self.find_element(*W_Enter.text_about_unregister_email)
         assert error_text_element.text == "Данный email не зарегистрирован"
+
+    def authorize_with_cookies(self):
+        self.driver.add_cookie(dict(name="accessToken", value="1567e02d62f8f624640181628f81b4e2ebaac133"))
+        self.driver.add_cookie({"name": "auth", "value": "%7B%22access_token%22%3A"
+                                                     "%221567e02d62f8f624640181628f81b4e2ebaac133%22%2C%22id%22"
+                                                     "%3A631114%2C%22refresh_token%22%3A"
+                                                     "%2252c983a1d4d005fe0ace535beead683fd1937b3d%22%2C%22initials%22"
+                                                     "%3A%22%D0%92%D0%90%22%2C%22avatar%22%3Anull%2C%22subscriptions"
+                                                     "%22%3A%5B%5D%2C%22roles%22%3A%5B%22subscriber%22%5D%7D"})
